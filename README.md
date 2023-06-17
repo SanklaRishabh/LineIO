@@ -39,8 +39,8 @@ The code is well protected with header guards to prevent cases of multiple inclu
 ## Parameters
 
 The `readline` function takes two parameters:
->*str*
-+ Pointer to the character buffer where the line read is stored.
+>*&str*
++ Address to the pointer to the character buffer where the line read is stored.
 
 >*stream*
 + Pointer to the `FILE` object that identifies an input stream.
