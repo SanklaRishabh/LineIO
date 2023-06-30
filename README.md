@@ -14,6 +14,7 @@
 + [Parameters](#parameters)
 + [Return Value](#return-value)
 + [Example](#example)
++ [Warning](#warning)
 
 ## Usage
 
@@ -78,5 +79,17 @@ int main(int argc, char *argv[]) {
     free(buffer);
 
     return 0;
+}
+```
+
+## Warning
+
+The `readline` function uses `malloc` to dynamically allocate memory to store the line read from the stream. It does not free the memory allocated to the buffer. It is the responsibility of the programmer to free the memory allocated to the buffer after use.
+
+Example:
+```c
+while (readline(&buffer, fp) != EMPTY_READ) {
+    // Do something with the buffer
+    free(buffer);
 }
 ```
