@@ -18,22 +18,20 @@
 
 ## Usage
 
-To use `readline`, download the `readline.h` and `readline.o` resource files into your project folder and link to create an executable using:
+To use `readline`, download the `lineio.h` and `liblineio.a` resource files into your project folder and link to create an executable using:
 ```powershell
 # GNU GCC Compiler
 
-gcc -o <OUTPUT_FILE_NAME> <SOURCE_FILE> "lineio.o"
-```
-```powershell
-# LLVM Clang Compiler
+gcc -std=c99 -Wall -llineio -o <OUTPUT_FILE> <SOURCE_FILE>
 
-clang -o <OUTPUT_FILE_NAME> <SOURCE_FILE> "lineio.o"
+# If the library is not in the same directory as the source file, use the -L flag to specify the path to the library file.
+
+gcc -std=c99 -Wall -L <PATH_TO_LIBRARY> -llineio -o <OUTPUT_FILE> <SOURCE_FILE>
 ```
-Here, the **<OUTPUT_FILE_NAME>** is the path of the executable file to be created, and the **<SOURCE_FILE>** is the path of the source file that contains the `main` function.
 
 ## Inclusion
 
-The library already includes the `basetsd.h`, `stdio.h` and `stdlib.h` header files, so there is no need to include them again in the source code. However, the `lineio.h` header file must be included.
+The library already includes the `basetsd.h` header file, so there is no need to include it again in the source code. However, the `stdio.h`, `stdlib.h`, and the `lineio.h` header files must be included.
 
 The code is well protected with header guards to prevent cases of multiple inclusion.
 
@@ -84,7 +82,7 @@ int main(int argc, char *argv[]) {
 
 ## Warning
 
-The `readline` function uses `malloc` to dynamically allocate memory to store the line read from the stream. It does not free the memory allocated to the buffer. It is the responsibility of the programmer to free the memory allocated to the buffer after use.
+The `readline` function uses `malloc` to dynamically allocate memory to store the line read from the stream. It does not free the memory allocated to the buffer. It is the responsibility of the programmer to free the memory allocated to the buffer after use. However, there will be a fix to this in a future version.
 
 Example:
 ```c

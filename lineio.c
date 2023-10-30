@@ -1,6 +1,6 @@
 #include "lineio.h"
 
-ssize_t readline(char **buffer, FILE *ptr) {
+size_t readline(char **buffer, FILE *ptr) {
     *buffer = NULL;
     size_t bufSize = 0;
     char charBuf;
@@ -32,5 +32,5 @@ ssize_t readline(char **buffer, FILE *ptr) {
     (*buffer)[bufSize] = '\0';
 
     // Line reading successful.
-    return (ssize_t)bufSize;
+    return (size_t)bufSize;
 }
