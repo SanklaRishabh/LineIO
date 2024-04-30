@@ -7,6 +7,7 @@
 #ifndef _LINEIO_H
 #define _LINEIO_H
 
+#define NULL_ERROR -2
 #define ALLOCATION_FAILURE -1
 #define EMPTY_READ 0
 
