@@ -1,4 +1,4 @@
->![note]
+>[!note]
 >This documentation is obsolete and needs to be updated.
 >The library has been updated to work almost the same as POSIX getline, and is blazingly fast.
 
